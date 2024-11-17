@@ -1,0 +1,139 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <!-- Contenedor en una sola fila para "Hello" y "[Nombre de Usuario]" -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/textHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#86A6AA"
+            android:textStyle="bold"
+            android:text="Configuracion"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonInterview"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/button_border"
+        android:padding="25dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="40dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="10dp"
+                android:text="Idioma"
+                android:layout_marginBottom="15dp"
+                android:textColor="#86A6AA"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/work_area_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_background"
+                android:entries="@array/work_idioma_options"
+                android:padding="12dp"
+                android:popupBackground="#86A6AA"
+                android:spinnerMode="dropdown" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- Menú inferior con íconos de navegación -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="47dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/menuHome"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="80dp"
+                android:src="@drawable/ic_home"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/rounded_button"
+                android:contentDescription="Home"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <ImageButton
+                android:id="@+id/menuUser"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="80dp"
+                android:src="@drawable/ic_user"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:background="@drawable/rounded_button"
+                android:contentDescription="User"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <ImageButton
+                android:id="@+id/menuSettings"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_settings"
+                android:scaleType="fitCenter"
+                android:padding="6dp"
+                android:background="@drawable/rounded_button"
+                android:contentDescription="Settings"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

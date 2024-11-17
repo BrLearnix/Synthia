@@ -1,0 +1,44 @@
+<!-- sound_bars.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Barra 1 (pequeña) -->
+    <item android:left="0dp">
+        <shape android:shape="rectangle">
+            <size android:width="4dp" android:height="10dp" />
+            <solid android:color="#4CAF50" />
+        </shape>
+    </item>
+
+    <!-- Barra 2 (mediana) -->
+    <item android:left="10dp">
+        <shape android:shape="rectangle">
+            <size android:width="4dp" android:height="20dp" />
+            <solid android:color="#4CAF50" />
+        </shape>
+    </item>
+
+    <!-- Barra 3 (grande) -->
+    <item android:left="20dp">
+        <shape android:shape="rectangle">
+            <size android:width="4dp" android:height="30dp" />
+            <solid android:color="#4CAF50" />
+        </shape>
+    </item>
+
+    <!-- Barra 4 (mediana) -->
+    <item android:left="30dp">
+        <shape android:shape="rectangle">
+            <size android:width="4dp" android:height="20dp" />
+            <solid android:color="#4CAF50" />
+        </shape>
+    </item>
+
+    <!-- Barra 5 (pequeña) -->
+    <item android:left="40dp">
+        <shape android:shape="rectangle">
+            <size android:width="4dp" android:height="10dp" />
+            <solid android:color="#4CAF50" />
+        </shape>
+    </item>
+
+</layer-list>

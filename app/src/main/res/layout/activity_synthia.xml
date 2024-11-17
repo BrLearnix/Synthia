@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="#f5f5f5">
+
+    <TextView
+        android:id="@+id/bufferTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciando reconocimiento..."
+        android:textSize="18sp"
+        android:visibility="visible"
+        android:padding="16dp"/>
+
+    <!--<TextView
+       android:id="@+id/titleTextView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="SynthIA"
+       android:textSize="18sp"
+       android:textColor="#333333"
+       android:layout_marginBottom="24dp"/>
+
+   Botón para grabar/stop grabación -->
+
+    <Button
+        android:id="@+id/recordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Entrevista"
+        android:layout_above="@id/lineasVerticales"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="170dp"
+        android:backgroundTint="#4CAF50"
+        android:background="@drawable/circular_button"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+
+
+
+    <LinearLayout
+        android:id="@+id/lineasVerticales"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp">
+
+        <!-- Línea 1 -->
+        <View
+            android:id="@+id/view1"
+            android:layout_width="3dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="40dp"
+            android:background="#000000" />
+
+        <!-- Línea 2 -->
+        <View
+            android:id="@+id/view2"
+            android:layout_width="3dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <!-- Línea 3 -->
+        <View
+            android:id="@+id/view3"
+            android:layout_width="3dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <!-- Línea 4 -->
+        <View
+            android:id="@+id/view4"
+            android:layout_width="3dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <!-- Línea 5 -->
+        <View
+            android:id="@+id/view5"
+            android:layout_width="3dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="3dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <!-- Línea 6 -->
+        <View
+            android:id="@+id/view7"
+            android:layout_width="3dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <!-- Línea 7 -->
+        <View
+            android:id="@+id/view8"
+            android:layout_width="3dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:background="#000000" />
+
+        <!-- Línea 8 -->
+        <View
+            android:id="@+id/view9"
+            android:layout_width="3dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="40dp"
+            android:background="#000000" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/botonStop"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp">
+
+        <ImageButton
+            android:id="@+id/stopButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/play"
+            android:clickable="false"
+            android:enabled="false"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <!-- Pie de página con nombre y derechos reservados -->
+    <TextView
+        android:id="@+id/footerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© 2024 BernardoAI - Todos los derechos reservados"
+        android:textSize="14sp"
+        android:textColor="#999999"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+</RelativeLayout>

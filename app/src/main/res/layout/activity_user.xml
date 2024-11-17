@@ -1,0 +1,221 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <!-- Contenedor en una sola fila para "Hello" y "[Nombre de Usuario]" -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/textHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textColor="#86A6AA"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonInterview"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/button_border"
+        android:padding="25dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="67dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/user" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datos Personales"
+            android:paddingTop="20dp"
+            android:textColor="#86A6AA"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textAllCaps="false" />
+
+        <!-- Información del usuario -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/nombreUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Bernardo"
+                android:textColor="#86A6AA"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/emailUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Bernardo@gmail.com"
+                android:textColor="#86A6AA"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dni:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/dniUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  78273938"
+                android:textColor="#86A6AA"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Area:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/areaTrabajo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Adminitracion"
+                android:textColor="#86A6AA"
+                android:textSize="16sp"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Menú inferior con íconos de navegación -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="47dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/menuHome"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="80dp"
+                android:background="@drawable/rounded_button"
+                android:clickable="true"
+                android:contentDescription="Home"
+                android:focusable="true"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_home" />
+
+            <ImageButton
+                android:id="@+id/menuUser"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="80dp"
+                android:background="@drawable/rounded_button"
+                android:clickable="true"
+                android:contentDescription="User"
+                android:focusable="true"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_user" />
+
+            <ImageButton
+                android:id="@+id/menuSettings"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_button"
+                android:clickable="true"
+                android:contentDescription="Settings"
+                android:focusable="true"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_settings" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
