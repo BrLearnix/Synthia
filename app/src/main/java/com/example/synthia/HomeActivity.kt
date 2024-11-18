@@ -36,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
         val buttonAboutCompany: LinearLayout = findViewById(R.id.buttonInterview)
         buttonAboutCompany.setOnClickListener {
             // Crea un Intent para iniciar la nueva actividad
-            val intent = Intent(this, SynthiaActivity::class.java)
+            val intent = Intent(this, SynthiaActivity2::class.java)
             intent.putExtra("nombre_usuario", usuarioNombre)
             startActivity(intent)
         }

@@ -4,25 +4,66 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Nombre de la aplicación en la parte superior -->
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SynthIA"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Espaciador para centrar el contenido -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" /> <!-- Esto empuja los elementos hacia arriba y abajo -->
+
+    <!-- Botón centrado -->
     <EditText
         android:id="@+id/messageInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:hint="Escribe tu mensaje"
-        android:background="@android:color/transparent"/>
-
+        android:background="@android:color/transparent"
+        android:layout_marginBottom="16dp"/>
     <Button
         android:id="@+id/voiceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hablar" />
+        android:text="Iniciar Entrevista"
+        android:layout_gravity="center"
+        android:backgroundTint="#4CAF50"
+        android:background="@drawable/circular_button"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:id="@+id/responseText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Respuesta de la API"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Pie de página -->
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="© 2024 BrLearnix"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
+

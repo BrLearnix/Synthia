@@ -26,6 +26,8 @@ import java.util.concurrent.TimeUnit
 
 class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
+    private lateinit var nombreUsuario: String
+
     private val client = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
@@ -51,6 +53,8 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeech = TextToSpeech(this, this)
 
 
+        // Obtener el valor de 'nombreUsuario' desde el Intent
+        nombreUsuario = intent.getStringExtra("nombre_usuario") ?: "Desconocido"
 
         voiceButton.setOnClickListener { startVoiceRecognition() }
     }
@@ -118,8 +122,9 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 put(JSONObject().apply {
                     put("role", "system")
                     put("content", "Eres una entrevistadora IT evaluando a un candidato para una posición" +
-                            " React Junior, tu nomnre es SynthIA, primero presentate y empieza la entrevista, Siempre tenés que contestar en español de Peru.Las respuestas no deben " +
-                            "tener placeholder.  Los mensajes no deben contener markdown, emojis, ni caracteres especiales fuera de la puntuación. ")
+                            " React Junior, tu nombre es SynthIA, el nombre de entrevistado es: $nombreUsuario, primero presentate y empieza la entrevista, " +
+                            "Siempre tenés que contestar en español de Peru.Las respuestas no deben tener placeholder.  Los mensajes no deben contener " +
+                            "markdown, emojis, ni caracteres especiales fuera de la puntuación, las preguntas deben ser cortas y soncisas")
                 })
                 put(JSONObject().apply {
                     put("role", "user")
