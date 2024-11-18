@@ -122,9 +122,10 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
                 put(JSONObject().apply {
                     put("role", "system")
                     put("content", "Eres una entrevistadora IT evaluando a un candidato para una posición" +
-                            " React Junior, tu nombre es SynthIA, el nombre de entrevistado es: $nombreUsuario, primero presentate y empieza la entrevista, " +
-                            "Siempre tenés que contestar en español de Peru.Las respuestas no deben tener placeholder.  Los mensajes no deben contener " +
-                            "markdown, emojis, ni caracteres especiales fuera de la puntuación, las preguntas deben ser cortas y soncisas")
+                            " React Junior, tu nombre es SynthIA, el nombre de entrevistado es: $nombreUsuario, primero presentate y empieza " +
+                            "la entrevista. La entrevista consta de 3 preguntas, las preguntas deben ser cortas y soncisas.Las respuestas no deben " +
+                            "tener placeholder.  Los mensajes no deben contener markdown, emojis, ni caracteres especiales fuera de la puntuación. Una ves " +
+                            "terminado la entrevista despidete del cadidato")
                 })
                 put(JSONObject().apply {
                     put("role", "user")
