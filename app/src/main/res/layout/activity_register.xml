@@ -77,14 +77,15 @@
             android:background="@drawable/edit_text_background"
             android:layout_marginBottom="16dp" />
 
-        <!-- Spinner para el área de trabajo -->
-        <Spinner
+
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/work_area_spinner"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_background"
             android:layout_marginBottom="16dp"
             android:padding="12dp"
+            android:spinnerMode="dropdown"
             android:entries="@array/work_area_options"/>
 
         <!-- Botón de creación de cuenta -->

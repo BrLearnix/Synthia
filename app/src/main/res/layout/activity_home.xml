@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp">
-    <!-- Contenedor en una sola fila para "Hello" y "[Nombre de Usuario]" -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,21 +18,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hola, "
-            android:textSize="18sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/textUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textSize="18sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/buttonInterview"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:orientation="horizontal"
         android:background="@drawable/button_border"
         android:padding="16dp"
@@ -42,32 +41,32 @@
         android:clickable="true"
         android:focusable="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Comenzar \nEntrevista"
-        android:textColor="#86A6AA"
-        android:paddingStart="20dp"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:textAllCaps="false"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comenzar \nEntrevista"
+            android:textColor="#86A6AA"
+            android:paddingStart="20dp"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textAllCaps="false"/>
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
-    <ImageView
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:src="@drawable/ic_interview"
-        android:layout_marginEnd="8dp" />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_interview"
+            android:layout_marginEnd="8dp" />
 </LinearLayout>
 
     <LinearLayout
         android:id="@+id/buttonWorkspace"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:orientation="horizontal"
         android:background="@drawable/button_border"
         android:padding="16dp"
@@ -84,7 +83,7 @@
             android:textColor="#86A6AA"
             android:textStyle="bold"
             android:paddingStart="20dp"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textAllCaps="false"/>
 
         <Space
@@ -93,8 +92,8 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/ic_workspace"
             android:layout_marginEnd="8dp" />
     </LinearLayout>
@@ -102,7 +101,7 @@
     <LinearLayout
         android:id="@+id/buttonAboutCompany"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:orientation="horizontal"
         android:background="@drawable/button_border"
         android:padding="20dp"
@@ -116,7 +115,7 @@
             android:textColor="#86A6AA"
             android:paddingStart="20dp"
             android:textStyle="bold"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textAllCaps="false"/>
 
         <Space
@@ -125,8 +124,8 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/ic_about_company"
             android:layout_marginEnd="8dp" />
     </LinearLayout>
@@ -146,8 +145,8 @@
 
             <ImageButton
                 android:id="@+id/menuHome"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginEnd="80dp"
                 android:src="@drawable/ic_home"
                 android:padding="6dp"
@@ -159,8 +158,8 @@
 
             <ImageButton
                 android:id="@+id/menuUser"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginEnd="80dp"
                 android:src="@drawable/ic_user"
                 android:padding="6dp"
@@ -172,8 +171,8 @@
 
             <ImageButton
                 android:id="@+id/menuSettings"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/ic_settings"
                 android:scaleType="fitCenter"
                 android:padding="6dp"

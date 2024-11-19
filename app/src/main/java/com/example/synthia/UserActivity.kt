@@ -20,6 +20,7 @@ class UserActivity : AppCompatActivity() {
     private lateinit var tvDniUsuario: TextView
     private lateinit var tvAreaTrabajo: TextView
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,9 +62,11 @@ class UserActivity : AppCompatActivity() {
         } else {
             tvDniUsuario.text = "xxxxxxx"
         }
-
-
-
+        if (usuarioArea != null) {
+            tvAreaTrabajo.text = "$usuarioArea"
+        } else {
+            tvAreaTrabajo.text = "XXXXXXXXXX"
+        }
 
         //ir a home
         val menuHome: ImageButton = findViewById(R.id.menuHome)
@@ -74,7 +77,6 @@ class UserActivity : AppCompatActivity() {
             intent.putExtra("nombre_usuarioOEmail", nombreUsuarioOEmail)
             startActivity(intent)
         }
-
 
         //ir a configuracion
         val menuSettings: ImageButton = findViewById(R.id.menuSettings)

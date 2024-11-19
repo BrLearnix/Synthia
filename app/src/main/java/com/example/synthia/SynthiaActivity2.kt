@@ -1,5 +1,4 @@
 package com.example.synthia
-
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -7,10 +6,7 @@ import android.speech.tts.TextToSpeech
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
@@ -23,7 +19,6 @@ import org.json.JSONObject
 import java.io.IOException
 import java.util.Locale
 import java.util.concurrent.TimeUnit
-
 class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var nombreUsuario: String
@@ -33,32 +28,23 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         .writeTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
-
     private lateinit var sendButton: Button
     private lateinit var messageInput: EditText
     private lateinit var responseText: TextView
     private lateinit var voiceButton: Button
-
     private lateinit var textToSpeech: TextToSpeech
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_synthia2)
-
         messageInput = findViewById(R.id.messageInput)
         responseText = findViewById(R.id.responseText)
         voiceButton = findViewById(R.id.voiceButton)
-
         // Inicializar TextToSpeech
         textToSpeech = TextToSpeech(this, this)
-
-
         // Obtener el valor de 'nombreUsuario' desde el Intent
         nombreUsuario = intent.getStringExtra("nombre_usuario") ?: "Desconocido"
-
         voiceButton.setOnClickListener { startVoiceRecognition() }
     }
-
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             // Configurar el idioma a español de Perú
@@ -72,12 +58,10 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
             responseText.text = "Error al inicializar el TTS."
         }
     }
-
     private fun speakResponse(response: String) {
         // Convertir el texto de la respuesta a voz
         textToSpeech.speak(response, TextToSpeech.QUEUE_FLUSH, null, null)
     }
-
     private fun startVoiceRecognition() {
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
@@ -91,9 +75,7 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
             responseText.text = "Reconocimiento de voz no disponible en este dispositivo."
         }
     }
-
     private val REQUEST_CODE_SPEECH = 100
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

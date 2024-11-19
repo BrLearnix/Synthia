@@ -117,7 +117,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return dni
     }
 
-    // Función para obtener el dni del usuario
+
+    // Función para obtener el área del usuario
     @SuppressLint("Range")
     fun obtenerArea(nombreUsuarioOEmail: String?): String? {
         val db = readableDatabase
@@ -126,6 +127,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         var area: String? = null
         if (cursor.moveToFirst()) {
+            // Obtener el área desde la columna COLUMN_AREA
             area = cursor.getString(cursor.getColumnIndex(COLUMN_AREA))
         }
 
@@ -133,12 +135,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return area
     }
-
-
-
-
-
-
 
 
 }
