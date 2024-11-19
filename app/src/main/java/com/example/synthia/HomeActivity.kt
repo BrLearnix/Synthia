@@ -25,6 +25,7 @@ class HomeActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
         val usuarioNombre = db.obtenerNombreUsuario(nombreUsuarioOEmail)
+        val areaUsuario= db.obtenerArea(nombreUsuarioOEmail)
 
 
         tvNombreUsuario = findViewById(R.id.textUserName)
@@ -38,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
             // Crea un Intent para iniciar la nueva actividad
             val intent = Intent(this, SynthiaActivity2::class.java)
             intent.putExtra("nombre_usuario", usuarioNombre)
+            intent.putExtra("area_usuario", areaUsuario)
             startActivity(intent)
         }
 

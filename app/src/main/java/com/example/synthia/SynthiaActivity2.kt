@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit
 class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var nombreUsuario: String
+    private lateinit var areaUsuario: String
 
     private val client = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
@@ -43,6 +44,7 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeech = TextToSpeech(this, this)
         // Obtener el valor de 'nombreUsuario' desde el Intent
         nombreUsuario = intent.getStringExtra("nombre_usuario") ?: "Desconocido"
+        areaUsuario = intent.getStringExtra("area_usuario") ?: "Desconocido"
         voiceButton.setOnClickListener { startVoiceRecognition() }
     }
     override fun onInit(status: Int) {
@@ -103,7 +105,7 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
             val messagesArray = JSONArray().apply {
                 put(JSONObject().apply {
                     put("role", "system")
-                    put("content", "Eres SynthIA, una entrevistadora técnica especializada en React, encargada de evaluar candidatos para una posición de React Junior. " +
+                    put("content", "Eres SynthIA, una entrevistadora técnica especializada en Area de React Junior, encargada de evaluar candidatos para una posición de React Junior. " +
                             "El entrevistado es $nombreUsuario. La entrevista debe desarrollarse de manera profesional y estructurada, siguiendo estas reglas:\n" +
                             "* Haz dos preguntas técnicas relevantes y prácticas sobre React, enfocadas en evaluar conocimientos fundamentales y habilidades aplicadas.\n" +
                             "* Cada pregunta debe ser clara, breve y enfocada en problemas reales o situaciones comunes en el desarrollo con React.\n" +

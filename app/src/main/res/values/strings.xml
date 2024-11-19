@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">SynthIA</string>
     <string-array name="work_area_options">
-        <item>Administración</item>
-        <item>Ventas</item>
-        <item>Soporte Técnico</item>
+        <item>React Junior</item>
+        <item>JavaScript</item>
+        <item>Analista de base de datos</item>
         <item>Marketing</item>
-        <item>Recursos Humanos</item>
+        <item>Paython Senior</item>
     </string-array>
 
     <string-array name="work_idioma_options">
