@@ -18,6 +18,9 @@
         android:theme="@style/Theme.SynthIA"
         tools:targetApi="31">
         <activity
+            android:name=".AreatrabajoActivity"
+            android:exported="true" />
+        <activity
             android:name=".SynthiaActivity2"
             android:exported="true" />
         <activity
@@ -44,6 +47,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

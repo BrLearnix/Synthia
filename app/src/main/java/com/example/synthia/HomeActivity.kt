@@ -41,6 +41,13 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val buttonSombreCompania: LinearLayout = findViewById(R.id.buttonWorkspace)
+        buttonSombreCompania.setOnClickListener {
+            // Crea un Intent para iniciar la nueva actividad
+            val intent = Intent(this, AreatrabajoActivity::class.java)
+            startActivity(intent)
+        }
+
 
         //ir a perfil de usuario
         val menuUser: ImageButton = findViewById(R.id.menuUser)

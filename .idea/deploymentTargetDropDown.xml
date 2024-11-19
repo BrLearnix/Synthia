@@ -2,6 +2,9 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="AreatrabajoActivity">
+        <State />
+      </entry>
       <entry key="CinthiaActivity">
         <State />
       </entry>
@@ -29,9 +32,6 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2024-11-19T02:21:31.633850Z" />
         </State>
-      </entry>
-      <entry key="hola">
-        <State />
       </entry>
       <entry key="iabernardo">
         <State />
