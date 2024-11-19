@@ -105,7 +105,7 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
             val messagesArray = JSONArray().apply {
                 put(JSONObject().apply {
                     put("role", "system")
-                    put("content", "Eres SynthIA, una entrevistadora técnica especializada en Area de React Junior, encargada de evaluar candidatos para una posición de React Junior. " +
+                    put("content", "Eres SynthIA, una entrevistadora técnica especializada en Area de React Junior, encargada de evaluar candidatos para una posición de $areaUsuario. " +
                             "El entrevistado es $nombreUsuario. La entrevista debe desarrollarse de manera profesional y estructurada, siguiendo estas reglas:\n" +
                             "* Haz dos preguntas técnicas relevantes y prácticas sobre React, enfocadas en evaluar conocimientos fundamentales y habilidades aplicadas.\n" +
                             "* Cada pregunta debe ser clara, breve y enfocada en problemas reales o situaciones comunes en el desarrollo con React.\n" +
