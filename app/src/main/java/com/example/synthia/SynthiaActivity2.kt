@@ -31,6 +31,7 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         .build()
     private lateinit var sendButton: Button
     private lateinit var messageInput: EditText
+    private lateinit var requestText: TextView
     private lateinit var responseText: TextView
     private lateinit var voiceButton: Button
     private lateinit var textToSpeech: TextToSpeech
@@ -38,6 +39,7 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_synthia2)
         messageInput = findViewById(R.id.messageInput)
+        requestText = findViewById(R.id.requestText)
         responseText = findViewById(R.id.responseText)
         voiceButton = findViewById(R.id.voiceButton)
         // Inicializar TextToSpeech
@@ -84,11 +86,13 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         if (requestCode == REQUEST_CODE_SPEECH && resultCode == RESULT_OK) {
             val recognizedText = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0) ?: ""
             if (recognizedText.isNotEmpty()) {
+                var requestMessage = requestText.setText(recognizedText)
                 messageInput.setText(recognizedText)
                 sendMessage(recognizedText) { response ->
                     runOnUiThread {
                         responseText.text = response
-                        speakResponse(response)
+                        var responseMesssage = speakResponse(response)
+                        messageInput.setText("")
                     }
                 }
             } else {
