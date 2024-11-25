@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val getStartedButton: Button = findViewById(R.id.get_started_button)
         getStartedButton.setOnClickListener {
-            val intent = Intent(this,loginActivity::class.java)  // Redirige a la pantalla de login
+            val intent = Intent(this,LoginActivity1::class.java)  // Redirige a la pantalla de login
             startActivity(intent)
         }
     }

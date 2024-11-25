@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "810239969649",
-    "project_id": "synthia-9dd19",
-    "storage_bucket": "synthia-9dd19.firebasestorage.app"
+    "project_number": "425624573504",
+    "project_id": "synthia-51117",
+    "storage_bucket": "synthia-51117.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:810239969649:android:519c1948e50f16f26d4ed0",
+        "mobilesdk_app_id": "1:425624573504:android:f1308b30a2037ec617f1a5",
         "android_client_info": {
           "package_name": "com.example.synthia"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDrPUp6MdRpk3vaUkhbVYSXBT49c0OYbBU"
+          "current_key": "AIzaSyBE9F-KzQ3CM3oq1btBxOupq6wu-qs57As"
         }
       ],
       "services": {

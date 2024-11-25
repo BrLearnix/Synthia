@@ -5,68 +5,67 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class UserActivity : AppCompatActivity() {
 
-    private lateinit var db: DatabaseHelper
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private lateinit var usernameTextView: TextView
+    private lateinit var emailTextView: TextView
+    private lateinit var dniTextView: TextView
+    private lateinit var areaTextView: TextView
 
-    private lateinit var tvNombreUsuario: TextView
-    private lateinit var tvEmailUsuario: TextView
-    private lateinit var tvDniUsuario: TextView
-    private lateinit var tvAreaTrabajo: TextView
-
-
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_user)
 
-        // Obtener los datos pasados desde LoginActivity
-        val nombreUsuarioOEmail = intent.getStringExtra("nombre_usuarioOEmail")
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
 
-        // Inicializar DatabaseHelper
-        db = DatabaseHelper(this)
+        // Inicializa las vistas
+        usernameTextView = findViewById(R.id.nombreUsuario)
+        emailTextView = findViewById(R.id.emailUsuario)
+        dniTextView = findViewById(R.id.dniUsuario)
+        areaTextView = findViewById(R.id.areaTrabajo)
 
-        val usuarioNombre = db.obtenerNombreUsuario(nombreUsuarioOEmail)
-        val usuarioEmail = db.obtenerEmail(nombreUsuarioOEmail)
-        val usuarioDni = db.obtenerDni(nombreUsuarioOEmail)
-        val usuarioArea = db.obtenerArea(nombreUsuarioOEmail)
+        // Obtener el UID del usuario actual
+        val userId = auth.currentUser?.uid
 
+        // Si el usuario está autenticado, obtener sus datos de Firestore
+        userId?.let {
+            db.collection("users").document(it).get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val username = document.getString("username")
+                        val email = document.getString("email")
+                        val dni = document.getString("dni")
+                        val area = document.getString("work_area")
 
-        // Referencias a los TextViews donde se mostrarán los datos
-        tvNombreUsuario = findViewById(R.id.nombreUsuario)
-        tvEmailUsuario = findViewById(R.id.emailUsuario)
-        tvDniUsuario = findViewById(R.id.dniUsuario)
-        tvAreaTrabajo = findViewById(R.id.areaTrabajo)
-
-        if (usuarioNombre != null) {
-            tvNombreUsuario.text = "$usuarioNombre"
-        } else {
-            tvNombreUsuario.text = "Usuario1"
+                        // Mostrar los datos en los TextViews
+                        usernameTextView.text = username
+                        emailTextView.text = email
+                        dniTextView.text = dni
+                        areaTextView.text = area
+                    } else {
+                        Toast.makeText(this, "No se encontraron datos", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Error al obtener los datos: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
         }
 
-        if (usuarioEmail != null) {
-            tvEmailUsuario.text = "$usuarioEmail"
-        } else {
-            tvEmailUsuario.text = "Ejemplo@gmail.com"
-        }
-
-        if (usuarioDni != null) {
-            tvDniUsuario.text = "$usuarioDni"
-        } else {
-            tvDniUsuario.text = "xxxxxxx"
-        }
-        if (usuarioArea != null) {
-            tvAreaTrabajo.text = "$usuarioArea"
-        } else {
-            tvAreaTrabajo.text = "XXXXXXXXXX"
-        }
 
         //ir a home
         val menuHome: ImageButton = findViewById(R.id.menuHome)
@@ -74,7 +73,6 @@ class UserActivity : AppCompatActivity() {
         menuHome.setOnClickListener {
             // Crea un Intent para iniciar la nueva actividad
             val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("nombre_usuarioOEmail", nombreUsuarioOEmail)
             startActivity(intent)
         }
 
@@ -84,7 +82,6 @@ class UserActivity : AppCompatActivity() {
         menuSettings.setOnClickListener {
             // Crea un Intent para iniciar la nueva actividad
             val intent = Intent(this, SettingActivity::class.java)
-            intent.putExtra("nombre_usuarioOEmail", nombreUsuarioOEmail)
             startActivity(intent)
         }
     }

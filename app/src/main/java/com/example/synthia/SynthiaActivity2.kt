@@ -6,7 +6,10 @@ import android.speech.tts.TextToSpeech
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
@@ -44,9 +47,10 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
         voiceButton = findViewById(R.id.voiceButton)
         // Inicializar TextToSpeech
         textToSpeech = TextToSpeech(this, this)
+
         // Obtener el valor de 'nombreUsuario' desde el Intent
-        nombreUsuario = intent.getStringExtra("nombre_usuario") ?: "Desconocido"
-        areaUsuario = intent.getStringExtra("area_usuario") ?: "Desconocido"
+        nombreUsuario = intent.getStringExtra("username") ?: "Desconocido"
+        areaUsuario = intent.getStringExtra("work_area") ?: "Desconocido"
         voiceButton.setOnClickListener { startVoiceRecognition() }
     }
     override fun onInit(status: Int) {
@@ -109,10 +113,10 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
             val messagesArray = JSONArray().apply {
                 put(JSONObject().apply {
                     put("role", "system")
-                    put("content", "Eres SynthIA, una entrevistadora técnica especializada en Area de React Junior, encargada de evaluar candidatos para una posición de $areaUsuario. " +
-                            "El entrevistado es $nombreUsuario. La entrevista debe desarrollarse de manera profesional y estructurada, siguiendo estas reglas:\n" +
-                            "* Haz dos preguntas técnicas relevantes y prácticas sobre React, enfocadas en evaluar conocimientos fundamentales y habilidades aplicadas.\n" +
-                            "* Cada pregunta debe ser clara, breve y enfocada en problemas reales o situaciones comunes en el desarrollo con React.\n" +
+                    put("content", "Tu nombre es: SynthIA, una entrevistadora técnica especializada, encargada de evaluar candidatos para una posición de JavaScript. " +
+                            "Su nombre del entrevistado es: Bernardo. La entrevista debe desarrollarse de manera profesional y estructurada, siguiendo estas reglas:\n" +
+                            "* Haz dos preguntas técnicas relevantes y prácticas, enfocadas en evaluar conocimientos fundamentales y habilidades aplicadas.\n" +
+                            "* Cada pregunta debe ser clara, breve y enfocada en problemas reales o situaciones comunes en el desarrollo\n" +
                             "* Evalúa cada respuesta del candidato de forma directa: responde únicamente con \"(respuesta correcta)\" o \"(respuesta incorrecta)\", sin explicaciones adicionales.\n" +
                             "* Si la respuesta es incorrecta, pasa directamente a la siguiente pregunta sin ofrecer pistas ni detalles.\n" +
                             "* Basándote en las respuestas proporcionadas, al final decide si el candidato es adecuado para la posición y comunica tu decisión con una breve justificación profesional.\n" +
