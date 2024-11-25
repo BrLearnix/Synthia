@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class SettingActivity : AppCompatActivity() {
 
-    private lateinit var db: DatabaseHelper
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,12 +18,6 @@ class SettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_setting)
 
         val nombreUsuarioOEmail = intent.getStringExtra("nombre_usuarioOEmail")
-
-        // Inicializar DatabaseHelper
-        db = DatabaseHelper(this)
-
-        val usuarioNombre = db.obtenerNombreUsuario(nombreUsuarioOEmail)
-
 
         //ir a home
         val menuHome: ImageButton = findViewById(R.id.menuHome)
@@ -35,7 +28,6 @@ class SettingActivity : AppCompatActivity() {
             intent.putExtra("nombre_usuarioOEmail", nombreUsuarioOEmail)
             startActivity(intent)
         }
-
 
         //ir a perfil
         val menuUser: ImageButton = findViewById(R.id.menuUser)

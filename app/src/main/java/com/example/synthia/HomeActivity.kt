@@ -43,7 +43,6 @@ class HomeActivity : AppCompatActivity() {
 
                         // Mostrar los datos en los TextViews
                         usernameTextView.text = username
-                        userArea.text = area
 
                     } else {
                         Toast.makeText(this, "No se encontraron datos", Toast.LENGTH_SHORT).show()
@@ -66,12 +65,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val buttonSombreCompania: LinearLayout = findViewById(R.id.buttonAboutCompany)
+        /**val buttonSombreCompania: LinearLayout = findViewById(R.id.buttonAboutCompany)
         buttonSombreCompania.setOnClickListener {
             // Crea un Intent para iniciar la nueva actividad
             val intent = Intent(this, AreatrabajoActivity::class.java)
             startActivity(intent)
-        }
+        }**/
 
         // Ir a perfil de usuario
         val menuUser: ImageButton = findViewById(R.id.menuUser)

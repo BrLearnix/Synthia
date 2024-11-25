@@ -2,9 +2,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FAFAFA"
     android:padding="16dp">
 
-    <!-- Nombre de la aplicación en la parte superior -->
+    <!-- Nombre de la aplicación -->
     <TextView
         android:id="@+id/appName"
         android:layout_width="match_parent"
@@ -13,96 +14,78 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#4CAF50"
+        android:layout_marginBottom="16dp" />
 
-
-    <!-- Botón centrado -->
+    <!-- Botón Circular Principal -->
     <Button
         android:id="@+id/voiceButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Entrevista"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
-        android:backgroundTint="#4CAF50"
+        android:text="Iniciar Entrevista"
         android:background="@drawable/circular_button"
         android:textColor="#FFFFFF"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp"/>
+        android:textStyle="bold"
+        android:elevation="8dp"
+        android:layout_marginBottom="16dp" />
 
+    <!-- ScrollView para el Chat -->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="340dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="10dp">
 
         <LinearLayout
             android:id="@+id/chatLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="end"
             android:orientation="vertical">
 
-            <!-- Ejemplo de un mensaje de usuario (burbuja enviada) -->
+            <!-- Mensaje de usuario (alineado a la derecha) -->
             <TextView
                 android:id="@+id/requestText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:layout_gravity="end"
                 android:background="@drawable/chat_bubble_sent"
                 android:gravity="end"
                 android:maxWidth="270dp"
                 android:padding="12dp"
-                android:paddingTop="16dp"
                 android:text="Hola"
                 android:textColor="#FFFFFF" />
 
-            <!-- Ejemplo de una respuesta del bot (burbuja recibida) -->
+            <!-- Respuesta del bot (alineada a la izquierda) -->
             <TextView
                 android:id="@+id/responseText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/chat_bubble_received"
                 android:gravity="start"
                 android:maxWidth="270dp"
                 android:padding="12dp"
-                android:paddingTop="16dp"
                 android:text=". . ."
                 android:textColor="#000000" />
-
         </LinearLayout>
     </ScrollView>
 
-
-
-
     <!-- Campo de entrada de texto -->
-    <LinearLayout
+    <EditText
+        android:id="@+id/messageInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="start">
+        android:background="@drawable/edit_text_border"
+        android:hint="Responder..."
+        android:gravity="start|center_vertical"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
 
-        <EditText
-            android:id="@+id/messageInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/edit_text_border"
-            android:gravity="start"
-            android:hint="Responder..."
-            android:textSize="15sp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:inputType="text" />
-
-    </LinearLayout>
-
-    <!-- Pie de página -->
+    <!-- Pie de Página -->
     <TextView
         android:id="@+id/footer"
         android:layout_width="match_parent"
@@ -110,6 +93,8 @@
         android:text="© 2024 BrLearnix"
         android:textSize="12sp"
         android:gravity="center"
-        android:layout_marginTop="16dp"/>
+        android:textColor="#9E9E9E"
+        android:layout_marginBottom="8dp" />
 </LinearLayout>
+
 
