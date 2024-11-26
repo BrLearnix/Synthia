@@ -55,7 +55,7 @@
                 android:gravity="end"
                 android:maxWidth="270dp"
                 android:padding="12dp"
-                android:text="Hola"
+                android:text="..."
                 android:textColor="#FFFFFF" />
 
             <!-- Respuesta del bot (alineada a la izquierda) -->

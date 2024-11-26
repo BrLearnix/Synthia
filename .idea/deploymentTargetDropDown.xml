@@ -5,13 +5,13 @@
       <entry key="AreatrabajoActivity">
         <State />
       </entry>
+      <entry key="EditUserActivity">
+        <State />
+      </entry>
       <entry key="HomeActivity">
         <State />
       </entry>
-      <entry key="LoginActivity1">
-        <State />
-      </entry>
-      <entry key="RegisterActivity1">
+      <entry key="SettingActivity">
         <State />
       </entry>
       <entry key="SynthiaActivity2">
@@ -30,7 +30,7 @@
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-11-19T02:21:31.633850Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-11-26T15:04:07.248375600Z" />
         </State>
       </entry>
       <entry key="iabernardo">

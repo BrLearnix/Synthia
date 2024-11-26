@@ -88,6 +88,26 @@
             android:spinnerMode="dropdown"
             android:entries="@array/work_area_options"/>
 
+        <LinearLayout
+            android:id="@+id/messageBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:background="#FF0000"
+            android:padding="10dp"
+            android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
         <!-- Botón de creación de cuenta -->
         <Button
             android:id="@+id/create_account_button"

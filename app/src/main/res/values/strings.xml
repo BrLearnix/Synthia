@@ -2,16 +2,21 @@
     <string name="app_name">SynthIA</string>
     <string-array name="work_area_options">
         <item>React Junior</item>
-        <item>JavaScript</item>
-        <item>Analista de base de datos</item>
+        <item>JavaScript Junior</item>
+        <item>Analista de Datos</item>
         <item>Marketing</item>
-        <item>Paython Senior</item>
+        <item>Diseño Grafico</item>
     </string-array>
 
     <string-array name="work_idioma_options">
         <item>Ingles</item>
         <item>Español</item>
         <item>Portugues</item>
+    </string-array>
+    <string-array name="theme_options">
+        <item>Claro</item>
+        <item>Oscuro</item>
+        <item>Sistema</item>
     </string-array>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

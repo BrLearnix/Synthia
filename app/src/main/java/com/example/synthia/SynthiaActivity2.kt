@@ -3,6 +3,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -24,33 +25,56 @@ import java.util.Locale
 import java.util.concurrent.TimeUnit
 class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-    private lateinit var nombreUsuario: String
-    private lateinit var areaUsuario: String
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     private val client = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
-    private lateinit var sendButton: Button
     private lateinit var messageInput: EditText
     private lateinit var requestText: TextView
     private lateinit var responseText: TextView
     private lateinit var voiceButton: Button
     private lateinit var textToSpeech: TextToSpeech
+
+    // Variables para almacenar los datos obtenidos
+    private var username: String? = null
+    private var userArea: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_synthia2)
+
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
         messageInput = findViewById(R.id.messageInput)
         requestText = findViewById(R.id.requestText)
         responseText = findViewById(R.id.responseText)
         voiceButton = findViewById(R.id.voiceButton)
-        // Inicializar TextToSpeech
+
+        val userId = auth.currentUser?.uid
+
+        // Si el usuario está autenticado, obtener sus datos de Firestore
+        userId?.let {
+            db.collection("users").document(it).get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        // Obtener username y area
+                        username = document.getString("username")
+                        userArea = document.getString("work_area")
+                    } else {
+                        Toast.makeText(this, "No se encontraron datos", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Error al obtener los datos: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }
+        }
+
         textToSpeech = TextToSpeech(this, this)
 
-        // Obtener el valor de 'nombreUsuario' desde el Intent
-        nombreUsuario = intent.getStringExtra("username") ?: "Desconocido"
-        areaUsuario = intent.getStringExtra("work_area") ?: "Desconocido"
         voiceButton.setOnClickListener { startVoiceRecognition() }
     }
     override fun onInit(status: Int) {
@@ -113,8 +137,8 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
             val messagesArray = JSONArray().apply {
                 put(JSONObject().apply {
                     put("role", "system")
-                    put("content", "Tu nombre es: SynthIA, una entrevistadora técnica especializada, encargada de evaluar candidatos para una posición de JavaScript. " +
-                            "Su nombre del entrevistado es: Bernardo. La entrevista debe desarrollarse de manera profesional y estructurada, siguiendo estas reglas:\n" +
+                    put("content", "Tu nombre es: SynthIA, una entrevistadora especializada y encargada de evaluar candidatos para una posición de trabajo en $userArea. " +
+                            "Su nombre del entrevistado es: $username. La entrevista debe desarrollarse de manera profesional y estructurada, siguiendo estas reglas:\n" +
                             "* Haz dos preguntas técnicas relevantes y prácticas, enfocadas en evaluar conocimientos fundamentales y habilidades aplicadas.\n" +
                             "* Cada pregunta debe ser clara, breve y enfocada en problemas reales o situaciones comunes en el desarrollo\n" +
                             "* Evalúa cada respuesta del candidato de forma directa: responde únicamente con \"(respuesta correcta)\" o \"(respuesta incorrecta)\", sin explicaciones adicionales.\n" +
@@ -153,12 +177,41 @@ class SynthiaActivity2 : AppCompatActivity(), TextToSpeech.OnInitListener {
                         "Error al procesar la respuesta: ${e.message}"
                     }
                     callback(messageContent)
+
+                    // Guardar conversación en Firestore
+                    saveMessageToFirestore(message, "user") // Guardar el mensaje del usuario
+                    saveMessageToFirestore(messageContent, "ia") // Guardar la respuesta de la IA
                 } else {
                     callback("Error: ${response.message}")
                 }
             }
         })
     }
+
+    private fun saveMessageToFirestore(messageContent: String, messageType: String) {
+        val userId = auth.currentUser?.uid
+        val timestamp = System.currentTimeMillis() // Usamos la hora actual como marca temporal
+
+        if (userId != null) {
+            val messageData = hashMapOf(
+                "user_id" to userId,
+                "timestamp" to timestamp,
+                "message_type" to messageType,
+                "message_content" to messageContent
+            )
+
+            // Guardar el mensaje en la colección "conversations"
+            db.collection("conversations")
+                .add(messageData)
+                .addOnSuccessListener { documentReference ->
+                    Log.d("SynthiaActivity2", "Mensaje guardado con ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("SynthiaActivity2", "Error al guardar el mensaje", e)
+                }
+        }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()

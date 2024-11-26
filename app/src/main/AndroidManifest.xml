@@ -18,13 +18,25 @@
         android:theme="@style/Theme.SynthIA"
         tools:targetApi="31">
         <activity
+            android:name=".EmpresaInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutcompanyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AreatrabajoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditUserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity1"
             android:exported="true" />
         <activity
             android:name=".RegisterActivity1"
-            android:exported="true" />
-        <activity
-            android:name=".AreatrabajoActivity"
             android:exported="true" />
         <activity
             android:name=".SynthiaActivity2"
@@ -40,12 +52,6 @@
             android:exported="true" />
         <activity
             android:name=".SynthiaActivity"
-            android:exported="true" />
-        <activity
-            android:name=".loginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
@@ -67,9 +68,18 @@ class UserActivity : AppCompatActivity() {
         }
 
 
+        /**val btnEdit = findViewById<Button>(R.id.btnEdit)
+        btnEdit.setOnClickListener {
+            val intent = Intent(this, EditUserActivity::class.java)
+            startActivity(intent)
+        }**/
+
+
+
+
+
         //ir a home
         val menuHome: ImageButton = findViewById(R.id.menuHome)
-
         menuHome.setOnClickListener {
             // Crea un Intent para iniciar la nueva actividad
             val intent = Intent(this, HomeActivity::class.java)
@@ -78,7 +88,6 @@ class UserActivity : AppCompatActivity() {
 
         //ir a configuracion
         val menuSettings: ImageButton = findViewById(R.id.menuSettings)
-
         menuSettings.setOnClickListener {
             // Crea un Intent para iniciar la nueva actividad
             val intent = Intent(this, SettingActivity::class.java)

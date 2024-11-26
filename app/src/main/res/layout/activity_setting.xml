@@ -1,139 +1,264 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="30dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="30dp"
+    android:background="#FFFFFF">
 
-    <!-- Contenedor en una sola fila para "Hello" y "[Nombre de Usuario]" -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="start"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:focusable="true">
-
-        <TextView
-            android:id="@+id/textHello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#86A6AA"
-            android:textStyle="bold"
-            android:text="Configuracion"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/textUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/buttonInterview"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:background="@drawable/button_border"
-        android:padding="25dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:focusable="true">
+        android:paddingBottom="24dp">
+
+        <!-- Sección de Configuración General -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingTop="40dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:layout_marginBottom="24dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:elevation="4dp">
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="24dp">
 
             <TextView
+                android:id="@+id/textHello"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingEnd="10dp"
-                android:text="Idioma"
-                android:layout_marginBottom="15dp"
+                android:text="Configuración"
                 android:textColor="#86A6AA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/work_area_spinner"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/edit_text_background"
-                android:entries="@array/work_idioma_options"
-                android:padding="12dp"
-                android:popupBackground="#86A6AA"
-                android:spinnerMode="dropdown" />
-
+                android:textStyle="bold"
+                android:textSize="24sp" />
         </LinearLayout>
 
-    </LinearLayout>
-    <!-- Menú inferior con íconos de navegación -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <!-- Sección de Cuenta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cuenta"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#86A6AA"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Email asociado"
+                    android:textSize="16sp"
+                    android:textColor="#4D7F83" />
+
+                <TextView
+                    android:id="@+id/emailUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user@example.com"
+                    android:textSize="16sp"
+                    android:textColor="#86A6AA" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerrar Sesion"
+                android:backgroundTint="#31D9D9"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:padding="12dp" />
+        </LinearLayout>
+
+        <!-- Sección de Notificaciones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificaciones"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#86A6AA"
+                android:layout_marginBottom="8dp" />
+
+            <Switch
+                android:id="@+id/switchEmailNotifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recibir notificaciones por correo"
+                android:textSize="16sp"
+                android:textColor="#4D7F83"
+                android:checked="true" />
+
+            <Switch
+                android:id="@+id/switchPushNotifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Habilitar notificaciones push"
+                android:textSize="16sp"
+                android:textColor="#4D7F83"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- Sección de Idioma y Tema -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Preferencias"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#86A6AA"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Idioma"
+                    android:textSize="16sp"
+                    android:textColor="#4D7F83" />
+
+                <Spinner
+                    android:id="@+id/languageSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/work_idioma_options"
+                    android:background="@drawable/edit_text_background"
+                    android:padding="8dp"
+                    android:popupBackground="#86A6AA" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tema"
+                    android:textSize="16sp"
+                    android:textColor="#4D7F83" />
+
+                <Spinner
+                    android:id="@+id/themeSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/theme_options"
+                    android:background="@drawable/edit_text_background"
+                    android:padding="8dp"
+                    android:popupBackground="#86A6AA" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Sección de Seguridad -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seguridad"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#86A6AA"
+                android:layout_marginBottom="8dp" />
+            <Button
+                android:id="@+id/changePasswordButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cambiar Contraseña"
+                android:backgroundTint="#31D9D9"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:padding="12dp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="47dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="40dp"
+            android:padding="10dp"
+            android:elevation="5dp"
             android:gravity="center">
 
             <ImageButton
                 android:id="@+id/menuHome"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_home"
-                android:padding="6dp"
+                android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:background="@drawable/rounded_button"
                 android:contentDescription="Home"
                 android:clickable="true"
-                android:focusable="true"/>
+                android:focusable="true"
+                app:tint="#3A3A3A" />
 
             <ImageButton
                 android:id="@+id/menuUser"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_user"
-                android:padding="6dp"
                 android:scaleType="fitCenter"
+                android:padding="5dp"
                 android:background="@drawable/rounded_button"
                 android:contentDescription="User"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
                 android:clickable="true"
-                android:focusable="true"/>
+                android:focusable="true"
+                app:tint="#3A3A3A" />
 
             <ImageButton
                 android:id="@+id/menuSettings"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_settings"
                 android:scaleType="fitCenter"
-                android:padding="6dp"
+                android:padding="5dp"
                 android:background="@drawable/rounded_button"
                 android:contentDescription="Settings"
                 android:clickable="true"
-                android:focusable="true"/>
+                android:focusable="true"
+                app:tint="#3A3A3A" />
         </LinearLayout>
-    </RelativeLayout>
-</LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -39,7 +39,6 @@ class HomeActivity : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     if (document != null) {
                         val username = document.getString("username")
-                        var area = document.getString("work_area")
 
                         // Mostrar los datos en los TextViews
                         usernameTextView.text = username
@@ -56,12 +55,21 @@ class HomeActivity : AppCompatActivity() {
         // Ir a SynthiaActivity2
         val buttonAboutCompany: LinearLayout = findViewById(R.id.buttonInterview)
         buttonAboutCompany.setOnClickListener {
-
-            val username = usernameTextView.text.toString()
-            val userArea = usernameTextView.text.toString()
             val intent = Intent(this, SynthiaActivity2::class.java)
-            intent.putExtra("username", username)
-            intent.putExtra("work_area", userArea)  // Enviar el área como extra
+
+            startActivity(intent)
+        }
+        //Ir Acerca de area de trabjo
+        val buttonAboutWork: LinearLayout = findViewById(R.id.buttonWorkspace)
+        buttonAboutWork.setOnClickListener {
+            val intent = Intent(this, AreatrabajoActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Ir Acerca de la empresa
+        val buttonAboutcompany: LinearLayout = findViewById(R.id.buttonAboutCompany)
+        buttonAboutcompany.setOnClickListener {
+            val intent = Intent(this, EmpresaInfoActivity::class.java)
             startActivity(intent)
         }
 

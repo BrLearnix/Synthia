@@ -52,23 +52,6 @@
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/sign_up_link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:onClick="openRegisterActivity"
-            android:text="Logout"
-            android:textColor="#1565C0"
-            android:textSize="15sp"
-            android:padding="10dp"
-            android:background="@drawable/rounded_button"
-            android:gravity="center"
-            android:layout_marginEnd="0dp"
-            android:elevation="4dp" />
-
     </RelativeLayout>
 
 
